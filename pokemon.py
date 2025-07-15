@@ -1,11 +1,19 @@
+# Github Action 
+# 1. py
+# 2. 어떤 OS에서 동작?? ubuntu
+# 3. 크롤링 - Selenium
+#  - 브라우저를 켜지 않고도 할 수 있는가?
+#  - linux 크롬 드라이버!! 
+
 import selenium.webdriver as wb
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
 from selenium.webdriver.chrome.options import Options
+
 options = Options()
-options.add_argument("--headless")
+options.add_argument("--headless") # 창 없음
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 
@@ -25,12 +33,12 @@ import csv
 import os
 pokemon_exist = os.path.exists("pokemon.csv")
 header = ["no", "name"]
+
 with open("pokemon.csv", "a", newline="") as file:
     writer = csv.writer(file)
 
     if not pokemon_exist:
         writer.writerow(header)
 
-        writer.writerow(["0001", name])
+    writer.writerow(["0001", name])
     print("포켓몬 저장 완료!!")
-        
